@@ -1,0 +1,30 @@
+name: CI
+on:
+  push:
+
+jobs:
+  ci:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11"]
+        poetry-version: ["1.8.2"]
+        os: [ubuntu-22.04, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install poetry
+        uses: abatilo/actions-poetry@v2
+        with:
+          poetry-version: ${{ matrix.poetry-version }}
+      - name: Install dev dependencies (lint)
+        run: poetry install -v --no-interaction --no-root --only dev
+      - name: Run linting
+        run: poetry run isort src \
+             poetry run ruff check src --fix \
+             poetry run ruff format src
