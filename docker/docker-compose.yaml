@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  todoapp:
+    image: ghcr.io/arodindev/todoapp:v0.0.1
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/healthz"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 250M
+        reservations:
+          cpus: '0.05'
+          memory: 50M
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 250M
+        reservations:
+          cpus: '0.05'
+          memory: 50M
+
+volumes:
+  mongo-data:
+    driver: local
