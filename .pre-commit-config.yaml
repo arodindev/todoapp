@@ -23,7 +23,7 @@ repos:
   rev: v0.991
   hooks:
     - id: mypy
-      files: ^(src/)
+      files: ^(todoapp/)
       args: [--ignore-missing-imports]
       additional_dependencies:
         - "pydantic>=1.10.4"

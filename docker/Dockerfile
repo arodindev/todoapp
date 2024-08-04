@@ -30,6 +30,6 @@ COPY --from=base /tmp/requirements.txt /todoapp/requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r /todoapp/requirements.txt
 
-COPY ./src /todoapp
+COPY ./todoapp /todoapp
 
 CMD ["uvicorn", "todoapp.main:app", "--host", "0.0.0.0", "--port", "8000"]

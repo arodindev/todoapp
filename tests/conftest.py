@@ -3,7 +3,7 @@ from typing import Generator
 import pytest
 from fastapi.testclient import TestClient
 
-from src.todoapp.main import app
+from todoapp.main import app
 
 
 @pytest.fixture()

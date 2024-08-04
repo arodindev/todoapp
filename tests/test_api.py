@@ -1,4 +1,4 @@
-from src.todoapp.config.core import settings
+from todoapp.config.core import settings
 
 
 def test_health(test_app) -> None:
