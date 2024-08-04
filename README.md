@@ -7,20 +7,26 @@
 
 ## Getting started
 
-Rename the `.env.sample` file to `.env` within the project folder or export the `MONGODB_URI` environment variable manually with `$ export MONGODB_URI=<YOUR_URI>`. The simplest way to start the production-ready application is via docker-compose.
+TODO
 
-```bash
-docker-compose up
-docker-compose down
-```
+## Development
 
-The application can be started in development mode via Poetry.
+TODO: Tilt + Docker compose
+
+Rename the `.env.sample` file to `.env` within the project folder or export the `MONGODB_URI` environment variable manually with `$ export MONGODB_URI=<YOUR_URI>`. The application can be started in development mode via Poetry.
 
 ```bash
 poetry run start
 ```
 
-## Running tests locally using Tox
+Pull MongoDB and run it:
+
+```bash
+docker pull mongo
+docker run -p 27017:27017 mongo
+```
+
+#### Running tests locally using Tox
 
 If you want to run tests and checks locally in an isolated environment. Useful if you want to make sure that all tests pass before passing new code to a CI/CD pipeline.
 
