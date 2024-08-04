@@ -21,6 +21,9 @@ RUN poetry export --without-hashes --without dev -f requirements.txt --output re
 
 FROM python:3.11.6-slim
 
+ENV MONGODB_URL="mongodb://localhost" \
+    MONGODB_URI="mongodb://mongo:27017"
+
 WORKDIR /todoapp
 
 COPY --from=base /tmp/requirements.txt /todoapp/requirements.txt
