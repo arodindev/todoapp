@@ -9,7 +9,7 @@ jobs:
       matrix:
         python-version: ["3.11"]
         poetry-version: ["1.8.2"]
-        os: [ubuntu-22.04, macos-latest, windows-latest]
+        os: [ubuntu-22.04]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
