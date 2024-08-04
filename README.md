@@ -5,25 +5,16 @@
 * [Poetry](https://python-poetry.org/docs/#installation) installed
 * Docker installed
 
-## Getting started
-
-TODO
-
-## Development
+## Getting Started
 
 TODO: Tilt + Docker compose
+
+## Development
 
 Rename the `.env.sample` file to `.env` within the project folder or export the `MONGODB_URI` environment variable manually with `$ export MONGODB_URI=<YOUR_URI>`. The application can be started in development mode via Poetry.
 
 ```bash
 poetry run start
-```
-
-Pull MongoDB and run it:
-
-```bash
-docker pull mongo
-docker run -p 27017:27017 mongo
 ```
 
 #### Running tests locally using Tox
