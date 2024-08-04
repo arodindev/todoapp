@@ -20,6 +20,6 @@ jobs:
         run: poetry install -v --no-interaction --no-root --only dev
       - name: Run linting
         run: |
-          poetry run isort src
-          poetry run ruff check src --fix
-          poetry run ruff format src
+          poetry run isort todoapp
+          poetry run ruff check todoapp --fix
+          poetry run ruff format todoapp
