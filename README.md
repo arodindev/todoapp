@@ -65,6 +65,12 @@ tox -e test_app
 tox -e checks
 ```
 
+## Deployment
+
+```bash
+sh scripts/push_new_tag.sh vX.X.X
+```
+
 ## Credits
 
 * [`Py-Pkgs`](https://py-pkgs.org)
