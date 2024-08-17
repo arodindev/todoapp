@@ -1,4 +1,4 @@
-FROM python:3.11.6-slim as base
+FROM python:3.11.6-slim AS base
 
 ENV PYTHONFAULTHANDLER=1 \
     PYTHONHASHSEED=random \
@@ -30,6 +30,6 @@ COPY --from=base /tmp/requirements.txt /todoapp/requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r /todoapp/requirements.txt
 
-COPY ./todoapp /todoapp
+COPY ./todoapp /todoapp/todoapp
 
 CMD ["uvicorn", "todoapp.main:app", "--host", "0.0.0.0", "--port", "8000"]
